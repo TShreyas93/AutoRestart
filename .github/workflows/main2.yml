@@ -21,6 +21,6 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh -o StrictHostKeyChecking=no -i private_key.pem ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << EOF
             # Navigate to the project directory
-            mv /tmp/Trigger/Auto_DISBLED /tmp/Trigger
+            mv /tmp/Trigger/Auto_DISBLED /tmp/Trigger/Auto
             sh /tmp/Trigger/Display.sh 
           EOF

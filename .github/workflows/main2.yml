@@ -7,9 +7,16 @@ jobs:
   rename-folder:
     runs-on: ubuntu-latest
     steps:
+      - name: Check user
+        run: |
+          if [[ "${{ github.actor }}" != "TShreyas93" && "${{ github.actor }}" != "allowed_user_2" ]]; then
+            echo "You are not authorized to run this workflow."
+            exit 1
+          fi
+          echo "Running workflow for ${{ github.actor }}"
       - name: Checkout code
         uses: actions/checkout@v2
-
+      
       - name: Rename folder on EC2
         env:
           EC2_HOST: ${{ secrets.EC2_HOST }}

@@ -7,9 +7,10 @@ jobs:
   rename-folder:
     runs-on: ubuntu-latest
     steps:
-      - name: Check user
+      - name: Check if the user is allowed
         run: |
-          if [[ "${{ github.actor }}" != "TShreyas935" && "${{ github.actor }}" != "allowed_user_2" ]]; then
+          allowed_users=("Tshrey93" "allowed_user_2" "allowed_user_3")
+          if [[ ! " ${allowed_users[@]} " =~ " ${GITHUB_ACTOR} " ]]; then
             echo "You are not authorized to run this workflow."
             exit 1
           fi

@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Check user
         run: |
-          if [[ "${{ github.actor }}" != "TShreyas93" && "${{ github.actor }}" != "allowed_user_2" ]]; then
+          if [[ "${{ github.actor }}" != "TShreyas935" && "${{ github.actor }}" != "allowed_user_2" ]]; then
             echo "You are not authorized to run this workflow."
             exit 1
           fi

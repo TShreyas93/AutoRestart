@@ -25,7 +25,7 @@ jobs:
           EC2_SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
           MY_PASS: ${{ secrets.EC2_HOST }}
         run: |
-          echo "MY_PASS is set but not revealed for security"
+          echo "$MY_PASS is set but not revealed for security"
           mkdir -p ~/.ssh
           echo "$EC2_SSH_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa

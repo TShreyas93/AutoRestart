@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Check if the user is allowed
         run: |
-          allowed_users=("Tshrey93" "allowed_user_2" "allowed_user_3")
+          allowed_users=("Tshreyas93" "allowed_user_2" "allowed_user_3")
           if [[ ! " ${allowed_users[@]} " =~ " ${GITHUB_ACTOR} " ]]; then
             echo "You are not authorized to run this workflow."
             exit 1
@@ -23,7 +23,9 @@ jobs:
           EC2_HOST: ${{ secrets.EC2_HOST }}
           EC2_USER: ${{ secrets.EC2_USER }}
           EC2_SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
+          MY_PASS: ${{ secrets.EC2_HOST }}
         run: |
+          echo $MY_PASS
           mkdir -p ~/.ssh
           echo "$EC2_SSH_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa

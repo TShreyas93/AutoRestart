@@ -2,6 +2,20 @@ name: Enable Folder on EC2
 
 on:
   workflow_dispatch:
+   inputs:
+      environment:
+        description: 'Select Environment'
+        required: true
+        default: 'staging'
+        type: choice
+        options:
+          - staging
+          - prod
+          - nft
+      deployment_type:
+        description: 'Deployment Type (All or JVM)'
+        required: true
+        default: 'All'    
 
 jobs:
   rename-folder:
